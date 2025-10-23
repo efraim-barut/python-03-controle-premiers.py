@@ -4,10 +4,19 @@ from math import sqrt
 
 
 def isprime(p):
+    if p < 2:
+        return False
+    if p == 2:
+        return True
+    if p % 2 == 0:
+        return False
+    limit = int(sqrt(p))
+    for d in range(3, limit + 1, 2):
+        if p % d == 0:
+            return False
+    return True
 
-    # votre code ici
 
-    pass
 
 #### Fonction principale
 
