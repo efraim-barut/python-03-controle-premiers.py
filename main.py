@@ -1,22 +1,25 @@
+"""
+Programme principal.
+"""
+
 from math import sqrt
 
 #### Fonction secondaire
 
 
 def isprime(p):
+    premier = True
     if p < 2:
-        return False
-    if p == 2:
-        return True
-    if p % 2 == 0:
-        return False
+        premier = False
+        print(str(p) + " inférieur à 2 donc pas premier")
     limit = int(sqrt(p))
-    for d in range(3, limit + 1, 2):
-        if p % d == 0:
-            return False
-    return True
-
-
+    for i in range(2, limit + 1):
+        if p % i == 0:
+            premier = False
+            print(str(p) + " = " + str(i) + " x " + str(p//i))
+            break
+    print(premier)
+    return premier
 
 #### Fonction principale
 
@@ -29,6 +32,7 @@ def main():
         if isprime(n):
             print(n, end=", ")
 
+    print(isprime(4))
     print()
 
 
